@@ -13199,134 +13199,55 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#All of the classic plugins to run data analysis and create dataframes</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">linalg</span>
-
-<span class="c1">#Plugins that allow us to listen to a song and pull data from that specific song ; includes notes, </span>
-<span class="kn">import</span> <span class="nn">librosa</span>
-<span class="kn">from</span> <span class="nn">pydub</span> <span class="k">import</span> <span class="n">AudioSegment</span>
-<span class="kn">import</span> <span class="nn">vamp</span>
-
-<span class="c1">#All of the plugins used to pull data from Spotify and communicate with Spotify&#39;s API within Python</span>
-<span class="kn">import</span> <span class="nn">spotipy</span>
-<span class="kn">import</span> <span class="nn">spotipy.oauth2</span>
-<span class="kn">import</span> <span class="nn">spotipy.util</span> <span class="k">as</span> <span class="nn">util</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1">#Reconfigures the path for Vamp plugins ; allows us to use plugins that are installed on the local computer</span>
-<span class="o">!</span> <span class="nb">export</span> <span class="nv">VAMP_PATH</span><span class="o">=</span>/Library/Audio/Plug-Ins/ 
-<span class="o">!</span> <span class="nb">echo</span> <span class="nv">$VAMP_PATH</span>
-</pre></div>
-
-    </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-Makes-a-Good-Song?">What Makes a Good Song?<a class="anchor-link" href="#What-Makes-a-Good-Song?">&#182;</a></h1>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Transforming-MP3-Files-into-.WAV-files">Transforming MP3 Files into .WAV files<a class="anchor-link" href="#Transforming-MP3-Files-into-.WAV-files">&#182;</a></h2><p><a class="anchor" id="transformation"></a></p>
-<blockquote><p>Below, we use the library for AudioSegment in order to source our .mp3 files and convert them into .wav files. Below, we ran an example in which we took Justin Beiber's song Yummy and converted it into a .wav file</p>
-</blockquote>
+<h1 id="Goals-of-Our-Project">Goals of Our Project<a class="anchor-link" href="#Goals-of-Our-Project">&#182;</a></h1><ol>
+<li>To create an algorithm that can read in a song and judge whether or not it will be popular</li>
+<li>Determine what factors make a song good</li>
+<li>Create a dataframe to analyze</li>
+<li>Find rating system that already exists and analyze it in comparison to ours</li>
+<li>Create a better rating system</li>
+</ol>
 
 </div>
 </div>
 </div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">src</span> <span class="o">=</span> <span class="s1">&#39;MP3_Files/Yummy.mp3&#39;</span>
-<span class="n">dst</span> <span class="o">=</span> <span class="s1">&#39;wav_Files/Yummy.wav&#39;</span>
-
-<span class="n">Example_song</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_mp3</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-<span class="n">Example_song</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">dst</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;wav&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;_io.BufferedRandom name=&#39;wav_Files/Yummy.wav&#39;&gt;</pre>
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Our-Process">Our Process<a class="anchor-link" href="#Our-Process">&#182;</a></h1><ol>
+<li>Vamp Audio Analysis Plugin</li>
+<li>Sonic Annotator</li>
+<li>Spotify API</li>
+<li>Creating Datasets</li>
+<li>Analyzing Data frames</li>
+</ol>
 
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-We-Discovered">What We Discovered<a class="anchor-link" href="#What-We-Discovered">&#182;</a></h1><p><strong>Our model was a more accurate predictor of a song's popularity than Spotify</strong></p>
 
+</div>
+</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reading-.wav-files-with-Librosa-and-analyzing-with-Vampy">Reading .wav files with Librosa and analyzing with Vampy<a class="anchor-link" href="#Reading-.wav-files-with-Librosa-and-analyzing-with-Vampy">&#182;</a></h2><p><a class="anchor" id="Vamp"></a></p>
-<blockquote><p>Using librosa, we can individually load in a song in .wav format. Once loaded, librosa allows Python to see the data and rate behind each element in the song. This will later be useful for Vampy. Vampy is a plugin that allows python to run Vamp. Now what is Vamp? Vamp is a open source music package that has individual plugins (installed into your local computer). These plugins allow you to read and analyze songs.</p>
+<h2 id="Introduction-to-Vamp-Plugins">Introduction to Vamp Plugins<a class="anchor-link" href="#Introduction-to-Vamp-Plugins">&#182;</a></h2><p><a class="anchor" id="Vamp"></a></p>
+<blockquote><p>Vampy is a plugin that allows python to run Vamp. Now what is Vamp? Vamp is a open source music package that has individual plugins (installed into your local computer). These plugins allow you to read and analyze songs.</p>
 </blockquote>
-
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using librosa to create two new items named data and rate</span>
-<span class="n">data</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;wav_Files/Yummy.wav&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To see what plugins can be utilized by Vampy the following command is run:</p>
 
 </div>
 </div>
@@ -13362,36 +13283,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># chroma = vamp.collect(data, rate, &quot;silvet:silvet&quot;)</span>
-<span class="c1"># stepsize, chromadata = chroma[&quot;matrix&quot;]</span>
-<span class="c1"># plt.imshow(chromadata)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Beat = vamp.collect(data, rate, &quot;beatroot-vamp:beatroot&quot;)</span>
-<span class="c1"># Chord = vamp.collect(data, rate, &quot;nnls-chroma:chordino&quot;)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13401,7 +13293,7 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13422,21 +13314,30 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ! /Users/ethandinh/Library/Audio/Plug-Ins/Vamp/sonic-annotator -d vamp:bbc-vamp-plugins:bbc-rhythm:tempo --recursive /Users/ethandinh/Desktop/Machine\ Learning/Final_Project\ /MP3_Files -w csv --csv-stdout &gt; Tempo</span>
-<span class="c1"># ! /Users/ethandinh/Library/Audio/Plug-Ins/Vamp/sonic-annotator -d vamp:silvet:silvet:notes --recursive /Users/ethandinh/Desktop/Machine\ Learning/Final_Project\ /MP3_Files -w csv --csv-stdout &gt; Notes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> /Users/ethandinh/Library/Audio/Plug-Ins/Vamp/sonic-annotator -d vamp:bbc-vamp-plugins:bbc-rhythm:tempo --recursive /Users/ethandinh/Desktop/Machine<span class="se">\ </span>Learning/Final_Project<span class="se">\ </span>/MP3_Files -w csv --csv-stdout &gt; Tempo
+<span class="o">!</span> /Users/ethandinh/Library/Audio/Plug-Ins/Vamp/sonic-annotator -d vamp:silvet:silvet:notes --recursive /Users/ethandinh/Desktop/Machine<span class="se">\ </span>Learning/Final_Project<span class="se">\ </span>/MP3_Files -w csv --csv-stdout &gt; Notes
 </pre></div>
 
     </div>
 </div>
 </div>
 
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Analysis-of-Our-Data-Using-Vamp">Analysis of Our Data Using Vamp<a class="anchor-link" href="#Analysis-of-Our-Data-Using-Vamp">&#182;</a></h1><blockquote><p>Through Sonic Annotator, the data collected from the songs by vamp was stored in a text file. So, we created functions that would allow us to read in the text file and analyze it to pull the useful features and put them into a data frame.</p>
+</blockquote>
+
 </div>
+</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
@@ -13462,36 +13363,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_chroma</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-        <span class="n">matrix</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">places</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
-            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
-                <span class="n">places</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
-            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">58</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">new_mat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
-        <span class="n">new_mats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">new_mat</span><span class="p">,</span> <span class="n">places</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">new_mats</span>
-
-<span class="n">mats</span> <span class="o">=</span> <span class="n">get_chroma</span><span class="p">(</span><span class="s1">&#39;Matrix&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[40]:</div>
@@ -13543,7 +13415,7 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13553,10 +13425,10 @@ a.anchor-link {
 
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">scope</span> <span class="o">=</span> <span class="s1">&#39;user-library-read&#39;</span>
@@ -13591,146 +13463,18 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ana</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">Df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">ana</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-    
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">):</span>
-    <span class="n">Df</span> <span class="o">=</span> <span class="n">Df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">analysis</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">song</span> <span class="ow">in</span> <span class="n">analysis</span><span class="p">:</span>
-    <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">song</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;tempo&#39;</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ana</span><span class="p">[</span><span class="s1">&#39;Names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">names</span>
-<span class="n">ana</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Names&#39;</span><span class="p">)</span>
-<span class="n">ana</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;uri&#39;</span><span class="p">,</span> <span class="s1">&#39;track_href&#39;</span><span class="p">,</span> <span class="s1">&#39;analysis_url&#39;</span><span class="p">])</span>
-<span class="n">ana</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Sunflower - Spider-Man: Into the Spider-Verse&#39;</span><span class="p">:</span> <span class="s1">&#39;Sunflower&#39;</span><span class="p">})</span>
-<span class="n">ana</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Spotify.csv&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-Analysis-(Spotify-API)">Data Analysis (Spotify API)<a class="anchor-link" href="#Data-Analysis-(Spotify-API)">&#182;</a></h2><p><a class="anchor" id="Data"></a></p>
-<blockquote><p>Spotipy is a jupyter notebook package that allows python to communicate with the spotify API</p>
-</blockquote>
+<h2 id="Results-from-Spotify's-Data">Results from Spotify's Data<a class="anchor-link" href="#Results-from-Spotify's-Data">&#182;</a></h2><p><a class="anchor" id="Data"></a></p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Scales the dataframe to ensure that the weight is unaffected by the size of the values</p>
-
-</div>
-</div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">ana</span><span class="p">)</span>
-<span class="n">rank</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">51</span><span class="p">):</span>
-    <span class="n">rank</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-following-creates-a-model-to-predict-the-rank-of-the-song-on-Spotify's-Global-Top-50:">The following creates a model to predict the rank of the song on Spotify's Global Top 50:<a class="anchor-link" href="#The-following-creates-a-model-to-predict-the-rank-of-the-song-on-Spotify's-Global-Top-50:">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ana</span><span class="p">)</span>
-<span class="n">b</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span>
-<span class="n">X</span><span class="o">=</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">b</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(50, 13) (50, 1)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Prints the weight of each catagory (Both positve and negative)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">columns</span>                           <span class="c1"># column names</span>
@@ -13759,19 +13503,19 @@ a.anchor-link {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(62.78186683534804, &#39;energy&#39;)
-(8.763829026087407, &#39;valence&#39;)
-(5.754218079936674, &#39;speechiness&#39;)
-(-4.589870200537435e-07, &#39;duration_ms&#39;)
-(-0.05924298705592834, &#39;mode&#39;)
-(-0.17499091666564215, &#39;tempo&#39;)
-(-0.19424044245721284, &#39;acousticness&#39;)
-(-0.781781722126988, &#39;time_signature&#39;)
-(-0.8792381028852305, &#39;key&#39;)
-(-4.30644117093755, &#39;loudness&#39;)
-(-15.290106547492408, &#39;liveness&#39;)
-(-17.85018053625503, &#39;danceability&#39;)
-(-38.43631962912502, &#39;instrumentalness&#39;)
+<pre>(57.25661766127398, &#39;energy&#39;)
+(4.789560298800188, &#39;speechiness&#39;)
+(1.8966001313496945, &#39;acousticness&#39;)
+(1.73007626527779e-05, &#39;duration_ms&#39;)
+(-0.17840419153423775, &#39;tempo&#39;)
+(-0.4682097678010537, &#39;time_signature&#39;)
+(-0.5817481383316866, &#39;key&#39;)
+(-1.5490537938695113, &#39;mode&#39;)
+(-1.6234637529776341, &#39;valence&#39;)
+(-2.6986582842706444, &#39;danceability&#39;)
+(-3.0396752452747404, &#39;loudness&#39;)
+(-13.519814845679399, &#39;liveness&#39;)
+(-32.78740209408545, &#39;instrumentalness&#39;)
 </pre>
 </div>
 </div>
@@ -13779,85 +13523,10 @@ a.anchor-link {
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Testing whether the scaling would help decrease the range in weights of each catagory</p>
-
-</div>
-</div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A_scaled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">ana</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_scaled</span><span class="o">=</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A_scaled</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">A_scaled</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A_scaled</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">b</span>
-
-<span class="n">categories</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">columns</span>                             <span class="c1"># column names</span>
-
-<span class="n">tuples</span> <span class="o">=</span> <span class="p">[]</span>                                          <span class="c1"># create tuples containing the category weights and names</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)):</span>
-    <span class="n">tuples</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">X_scaled</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">categories</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-    
-<span class="n">tuples</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>                          <span class="c1"># sort in decending order</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)):</span>                     <span class="c1"># print the output</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">tuples</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(6.853532482657053, &#39;energy&#39;)
-(1.5189883014803613, &#39;valence&#39;)
-(1.1914164375926797, &#39;speechiness&#39;)
-(-0.010960796836248843, &#39;duration_ms&#39;)
-(-0.8554519478004918, &#39;mode&#39;)
-(-1.0087160294700075, &#39;acousticness&#39;)
-(-1.4431828508039113, &#39;time_signature&#39;)
-(-2.7481957863844393, &#39;liveness&#39;)
-(-2.7998124428222075, &#39;instrumentalness&#39;)
-(-3.000798082007339, &#39;danceability&#39;)
-(-3.314043927114307, &#39;key&#39;)
-(-5.342156076269346, &#39;tempo&#39;)
-(-7.537188989649976, &#39;loudness&#39;)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">song_title</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the title of your song (Should match Spotify)? &quot;</span><span class="p">)</span>
@@ -13883,7 +13552,7 @@ a.anchor-link {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>What is the title of your song (Should match Spotify)? BOP
-Estimated rank of your song: -2
+Estimated rank of your song: -3
 </pre>
 </div>
 </div>
@@ -13891,10 +13560,10 @@ Estimated rank of your song: -2
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
@@ -13920,7 +13589,7 @@ Estimated rank of your song: -2
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Average Absolute Prediction Error: 10.655638472700097
+<pre>Average Absolute Prediction Error: 11.205592217271523
 </pre>
 </div>
 </div>
@@ -13928,60 +13597,17 @@ Estimated rank of your song: -2
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-following-creates-a-model-to-predict-the-popularity-rating-of-the-song-on-Spotify's-Global-Top-50:">The following creates a model to predict the popularity rating of the song on Spotify's Global Top 50:<a class="anchor-link" href="#The-following-creates-a-model-to-predict-the-popularity-rating-of-the-song-on-Spotify's-Global-Top-50:">&#182;</a></h3>
+<h1 id="Predicting-the-popularity-rating-of-a-song-on-Spotify's-Global-Top-50">Predicting the popularity rating of a song on Spotify's Global Top 50<a class="anchor-link" href="#Predicting-the-popularity-rating-of-a-song-on-Spotify's-Global-Top-50">&#182;</a></h1>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ana</span><span class="p">)</span>
-<span class="n">b_1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">ratings</span><span class="p">)</span>
-<span class="n">b_1</span> <span class="o">=</span> <span class="n">b_1</span><span class="o">.</span><span class="n">T</span>
-<span class="n">X_1</span><span class="o">=</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">A</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">b_1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">b_1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(50, 13) (50, 1)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Prints the weight of each catagory (Both positve and negative)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">columns</span>                           <span class="c1"># column names</span>
@@ -14010,19 +13636,19 @@ Estimated rank of your song: -2
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(20.55886918988135, &#39;danceability&#39;)
-(17.160095933144277, &#39;energy&#39;)
-(11.637222873960944, &#39;liveness&#39;)
-(7.577787545598886, &#39;time_signature&#39;)
-(7.510255480427027, &#39;valence&#39;)
-(5.5613641145991135, &#39;mode&#39;)
-(3.7412508887214635, &#39;acousticness&#39;)
-(1.5031385183483081, &#39;instrumentalness&#39;)
-(0.44854774749917325, &#39;key&#39;)
-(0.18113890542352257, &#39;tempo&#39;)
-(-3.0271007423049868e-05, &#39;duration_ms&#39;)
-(-1.4661499695405427, &#39;loudness&#39;)
-(-11.263535047721042, &#39;speechiness&#39;)
+<pre>(23.1779183416848, &#39;energy&#39;)
+(20.828437226731623, &#39;danceability&#39;)
+(12.128604628021463, &#39;liveness&#39;)
+(7.052447541855193, &#39;time_signature&#39;)
+(6.365708785147255, &#39;valence&#39;)
+(6.05304642525466, &#39;mode&#39;)
+(4.347300052806061, &#39;acousticness&#39;)
+(0.3764474423929838, &#39;key&#39;)
+(0.15605308998560943, &#39;tempo&#39;)
+(-3.683383608261135e-05, &#39;duration_ms&#39;)
+(-1.8149561326090407, &#39;instrumentalness&#39;)
+(-1.939499555009966, &#39;loudness&#39;)
+(-7.907393073962467, &#39;speechiness&#39;)
 </pre>
 </div>
 </div>
@@ -14030,10 +13656,10 @@ Estimated rank of your song: -2
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">song_title</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the title of your song (Should match Spotify)? &quot;</span><span class="p">)</span>
@@ -14069,10 +13695,10 @@ The true rating: 93
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">song_title</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;What is the title of your song (Should match Spotify)? &quot;</span><span class="p">)</span>
@@ -14109,9 +13735,9 @@ The true rating: 93
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>What is the title of your song (Should match Spotify)? Locked Out of Heaven
-The estimated popularity of your song is: 99
-The true rating: 78
+<pre>What is the title of your song (Should match Spotify)? Love Yourself
+The estimated popularity of your song is: 90
+The true rating: 82
 </pre>
 </div>
 </div>
@@ -14119,10 +13745,10 @@ The true rating: 78
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="mi">0</span>
@@ -14148,7 +13774,7 @@ The true rating: 78
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Average Absolute Prediction Error: 5.553918306065198
+<pre>Average Absolute Prediction Error: 5.38295817500263
 </pre>
 </div>
 </div>
@@ -14156,7 +13782,7 @@ The true rating: 78
 </div>
 </div>
 
-</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14164,83 +13790,7 @@ The true rating: 78
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">NewANA</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">Notes</span><span class="p">,</span> <span class="n">left_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">NewANA</span> <span class="o">=</span> <span class="n">NewANA</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">([</span><span class="s1">&#39;danceability&#39;</span><span class="p">,</span> <span class="s1">&#39;energy&#39;</span><span class="p">,</span> <span class="s1">&#39;loudness&#39;</span><span class="p">,</span> <span class="s1">&#39;mode&#39;</span><span class="p">,</span> <span class="s1">&#39;speechiness&#39;</span><span class="p">,</span> <span class="s1">&#39;acousticness&#39;</span><span class="p">,</span> <span class="s1">&#39;instrumentalness&#39;</span><span class="p">,</span> <span class="s1">&#39;liveness&#39;</span><span class="p">,</span> <span class="s1">&#39;valence&#39;</span><span class="p">,</span> <span class="s1">&#39;tempo&#39;</span><span class="p">]))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">NewANA</span> <span class="o">=</span> <span class="n">NewANA</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-<span class="n">popularity</span> <span class="o">=</span> <span class="n">popularity</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-<span class="n">popularity_list</span> <span class="o">=</span> <span class="n">popularity</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">A_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">NewANA</span><span class="p">)</span>
-<span class="n">b_new</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">popularity_list</span><span class="p">)</span>
-<span class="n">b_new</span> <span class="o">=</span> <span class="n">b_new</span><span class="o">.</span><span class="n">T</span>
-<span class="n">X_new</span><span class="o">=</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A_new</span><span class="o">.</span><span class="n">T</span><span class="o">*</span><span class="n">A_new</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">A_new</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">b_new</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">A_new</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">b_new</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>(50, 10) (50, 1)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
@@ -14289,7 +13839,7 @@ The true rating: 78
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[36]:</div>
@@ -14328,7 +13878,7 @@ The true rating: 93
 </div>
 </div>
 
-</div>
+</div></section><section>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[37]:</div>
